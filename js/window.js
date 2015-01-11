@@ -6,6 +6,7 @@ define(['jquery'], function($){
 			title: '系统消息',
 			content: '',			
 			hasCloseBtn: false,
+			hasMask: true,
 			skinClassName: null,
 			text4AlertBtn: '确定',
 			handler4AlertBtn: null,
@@ -15,7 +16,7 @@ define(['jquery'], function($){
 
 	Window.prototype = {
 		alert: function(cfg){
-			//重构接口格式,参数全部由cfg参数传入
+			
 			var CFG = $.extend(this.cfg, cfg),
 				boundingBox = $(
 				'<div class="window_boundingBox">' +
@@ -24,12 +25,20 @@ define(['jquery'], function($){
 					'<div class="window_footer"><input class="window_alertBtn" type="button" value="' + CFG.text4AlertBtn + '"></div>' +
 				'</div>'
 				),
-				btn = boundingBox.find('.window_alertBtn');
+				btn = boundingBox.find('.window_alertBtn'),
+				mask = null;
+
+			if(CFG.hasMask){
+				mask = $('<div class="window_mask"></div>');
+				mask.appendTo('body');
+			}
 
 			boundingBox.appendTo('body');
+
 			btn.click(function(){
 				CFG.handler4AlertBtn && CFG.handler4AlertBtn(); //存在执行，否则什么都不做
 				boundingBox.remove();
+				mask && mask.remove();
 			});
 
 			if(CFG.hasCloseBtn){
@@ -38,16 +47,13 @@ define(['jquery'], function($){
 				closeBtn.click(function(){
 					CFG.handler4CloseBtn && CFG.handler4CloseBtn();
 					boundingBox.remove();
+					mask && mask.remove();
 				});
 			}
 
 			if(CFG.skinClassName){
 				boundingBox.addClass(CFG.skinClassName);
 			}
-
-			//v0.4 remove the hard code in css files, use js to config
-			// 将cfg的默认值和传入值做合并处理, 如果没有传就是用默认值，否则使用传入的值
-			//$.extend(this.cfg, cfg); // extend内部对2个对象的key进行判断，如果有同名key就覆盖默认值
 
 			boundingBox.css({
 				width: CFG.width + 'px',
