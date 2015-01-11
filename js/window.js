@@ -14,10 +14,13 @@ define(['jquery', 'jqueryUI'], function($, $UI){
 			text4AlertBtn: '确定',
 			handler4AlertBtn: null,
 			handler4CloseBtn: null
-		}
+		};
+
+		this.handlers = {}
 	}
 
 	Window.prototype = {
+		
 		alert: function(cfg){
 			
 			var CFG = $.extend(this.cfg, cfg),
@@ -29,7 +32,8 @@ define(['jquery', 'jqueryUI'], function($, $UI){
 				'</div>'
 				),
 				btn = boundingBox.find('.window_alertBtn'),
-				mask = null;
+				mask = null,
+				that = this;
 
 			if(CFG.hasMask){
 				mask = $('<div class="window_mask"></div>');
@@ -39,19 +43,30 @@ define(['jquery', 'jqueryUI'], function($, $UI){
 			boundingBox.appendTo('body');
 
 			btn.click(function(){
-				CFG.handler4AlertBtn && CFG.handler4AlertBtn(); //存在执行，否则什么都不做
+				//CFG.handler4AlertBtn && CFG.handler4AlertBtn(); //存在执行，否则什么都不做
 				boundingBox.remove();
 				mask && mask.remove();
+				that.fire('alert');
 			});
 
 			if(CFG.hasCloseBtn){
 				var closeBtn = $('<span class="window_closeBtn">X</span>');
 				closeBtn.appendTo(boundingBox);
 				closeBtn.click(function(){
-					CFG.handler4CloseBtn && CFG.handler4CloseBtn();
+					//CFG.handler4CloseBtn && CFG.handler4CloseBtn();
 					boundingBox.remove();
 					mask && mask.remove();
+					that.fire('close');
 				});
+			}
+
+			//改代码了, 先注册事件
+			if(CFG.handler4AlertBtn){
+				this.on('alert', CFG.handler4AlertBtn);
+			}
+
+			if(CFG.handler4CloseBtn){
+				this.on('close', CFG.handler4CloseBtn);
 			}
 
 			if(CFG.skinClassName){
@@ -79,7 +94,24 @@ define(['jquery', 'jqueryUI'], function($, $UI){
 
 		confirm: function(){},
 
-		promot: function(){}
+		promot: function(){},
+
+		// 非常经典的观察则模式实现
+		on: function(type, handler){
+			if(typeof this.handlers[type] === 'undefined'){
+				this.handlers[type] = [];
+			}
+			this.handlers[type].push(handler);
+		},
+
+		fire: function(type, data){
+			if(this.handlers[type] instanceof Array){
+				var handlers = this.handlers[type];
+				for(var i = 0, len = handlers.length; i < len; i++){
+					handlers[i](data);
+				}
+			}
+		}
 	}
 
 	return {

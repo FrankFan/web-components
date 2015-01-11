@@ -13,3 +13,13 @@ web components study
 * v0.9 custom alert btn text
 * v0.10 implement a modal dialog
 * v0.11 make dialog drag'n'drop
+* v0.12 use observe pattern to custom event
+* v0.13 custom event II
+
+
+### key point
+
+* 自定义事件
+
+> 1. 本质： 观察者模式
+  2. 有点： 跳出原生事件的限制，提高封装的抽象性
