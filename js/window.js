@@ -1,4 +1,5 @@
-define(['jquery'], function($){
+
+define(['jquery', 'jqueryUI'], function($, $UI){
 	function Window(){
 		this.cfg = {
 			width: 500,
@@ -7,6 +8,8 @@ define(['jquery'], function($){
 			content: '',			
 			hasCloseBtn: false,
 			hasMask: true,
+			isDraggable: true,
+			dragHandle: null,
 			skinClassName: null,
 			text4AlertBtn: '确定',
 			handler4AlertBtn: null,
@@ -53,6 +56,17 @@ define(['jquery'], function($){
 
 			if(CFG.skinClassName){
 				boundingBox.addClass(CFG.skinClassName);
+			}
+
+			// jquery UI 的特性
+			if(CFG.isDraggable){
+				if(CFG.dragHandle){
+					boundingBox.draggable({
+						handle: CFG.dragHandle
+					});
+				}else{
+					boundingBox.draggable();
+				}				
 			}
 
 			boundingBox.css({

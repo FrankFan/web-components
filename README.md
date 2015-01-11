@@ -12,3 +12,4 @@ web components study
 * v0.8 custom different kinds of sikn
 * v0.9 custom alert btn text
 * v0.10 implement a modal dialog
+* v0.11 make dialog drag'n'drop
