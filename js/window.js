@@ -4,8 +4,10 @@ define(['jquery'], function($){
 			width: 500,
 			height: 300,
 			title: '系统消息',
-			content: '',
-			handler: null
+			content: '',			
+			hasCloseBtn: false,
+			handler4AlertBtn: null,
+			handler4CloseBtn: null
 		}
 	}
 
@@ -17,16 +19,25 @@ define(['jquery'], function($){
 				'<div class="window_boundingBox">' +
 					'<div class="window_header">' + CFG.title + '</div>' +
 					'<div class="window_body">' + CFG.content + '</div>' +
-					'<div class="window_footer"><input type="button" value="确定"></div>' +
+					'<div class="window_footer"><input class="window_alertBtn" type="button" value="确定"></div>' +
 				'</div>'
 				),
-				btn = boundingBox.find('.window_footer input');
+				btn = boundingBox.find('.window_alertBtn');
 
 			boundingBox.appendTo('body');
 			btn.click(function(){
-				CFG.handler && CFG.handler(); //存在执行，否则什么都不做
+				CFG.handler4AlertBtn && CFG.handler4AlertBtn(); //存在执行，否则什么都不做
 				boundingBox.remove();
 			});
+
+			if(CFG.hasCloseBtn){
+				var closeBtn = $('<span class="window_closeBtn">X</span>');
+				closeBtn.appendTo(boundingBox);
+				closeBtn.click(function(){
+					CFG.handler4CloseBtn && CFG.handler4CloseBtn();
+					boundingBox.remove();
+				});
+			}
 
 			//v0.4 remove the hard code in css files, use js to config
 			// 将cfg的默认值和传入值做合并处理, 如果没有传就是用默认值，否则使用传入的值

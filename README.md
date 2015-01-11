@@ -8,3 +8,4 @@ web components study
 * v0.4 remove the hard code in css files, use js to config
 * v0.5 adjust API params format: pass a object as param
 * v0.6 custom a title
+* v0.7 custom close button and callback
