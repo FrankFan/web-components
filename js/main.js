@@ -8,12 +8,13 @@ require(['jquery', 'window'], function($, w){
 	$('#a').click(function(){
 		new w.Window().alert({
 			title: '提示',
-			content: 'welcome!',			
+			content: 'welcome!',
 			width: 300,
 			height: 150,
 			y : 50,
 			hasCloseBtn: true,
-			skinClassName: 'window_skin_a',
+			text4AlertBtn: 'OK',
+			// skinClassName: 'window_skin_a',
 			handler4AlertBtn: function(){
 				alert('you click the alert button');
 			},
