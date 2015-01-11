@@ -3,6 +3,7 @@ define(['jquery'], function($){
 		this.cfg = {
 			width: 500,
 			height: 300,
+			title: '系统消息',
 			content: '',
 			handler: null
 		}
@@ -11,15 +12,17 @@ define(['jquery'], function($){
 	Window.prototype = {
 		alert: function(cfg){
 			//重构接口格式,参数全部由cfg参数传入
-			var CFG = $.extend(this.cfg, cfg);
+			var CFG = $.extend(this.cfg, cfg),
+				boundingBox = $(
+				'<div class="window_boundingBox">' +
+					'<div class="window_header">' + CFG.title + '</div>' +
+					'<div class="window_body">' + CFG.content + '</div>' +
+					'<div class="window_footer"><input type="button" value="确定"></div>' +
+				'</div>'
+				),
+				btn = boundingBox.find('.window_footer input');
 
-			var boundingBox = $('<div class="window_boundingBox"></div>');
 			boundingBox.appendTo('body');
-			boundingBox.html(CFG.content);
-
-			//v0.3 增加弹窗关闭按钮和回调入口
-			var btn = $(' <input type="button" value="确定">');
-			btn.appendTo(boundingBox);
 			btn.click(function(){
 				CFG.handler && CFG.handler(); //存在执行，否则什么都不做
 				boundingBox.remove();

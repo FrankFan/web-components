@@ -7,3 +7,4 @@ web components study
 * v0.3 add alert components btn and callback
 * v0.4 remove the hard code in css files, use js to config
 * v0.5 adjust API params format: pass a object as param
+* v0.6 custom a title
