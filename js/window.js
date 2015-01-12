@@ -90,6 +90,8 @@ define(['jquery', 'jqueryUI'], function($, $UI){
 				left: (CFG.x || (window.innerWidth - CFG.width) / 2) + 'px',
 				top:  (CFG.y || (window.innerHeight - CFG.height) / 2) + 'px'
 			});
+
+			return this;
 		},
 
 		confirm: function(){},
@@ -102,6 +104,8 @@ define(['jquery', 'jqueryUI'], function($, $UI){
 				this.handlers[type] = [];
 			}
 			this.handlers[type].push(handler);
+
+			return this;
 		},
 
 		fire: function(type, data){

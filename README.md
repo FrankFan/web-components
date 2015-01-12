@@ -15,11 +15,12 @@ web components study
 * v0.11 make dialog drag'n'drop
 * v0.12 use observe pattern to custom event
 * v0.13 custom event II
+* v0.14 chain function
 
 
 ### key point
 
 * 自定义事件
 
-> 1. 本质： 观察者模式
-  2. 有点： 跳出原生事件的限制，提高封装的抽象性
+> 1.本质： 观察者模式
+2.优点： 跳出原生事件的限制，提高封装的抽象性

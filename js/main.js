@@ -24,13 +24,17 @@ require(['jquery', 'window'], function($, w){
 			handler4CloseBtn: function(){
 				alert('you click the close button');
 			}
+		}).on('alert', function(){
+			alert('the second alert handler');
+		}).on('close', function(){
+			alert('the second close handler');
 		});
 
 		// win.on('alert', function(){alert('you click the alert button');});
-		win.on('alert', function(){alert('the second alert handler');});
+		// win.on('alert', function(){alert('the second alert handler');});
 		win.on('alert', function(){alert('the third alert handler');});
 		// win.on('close', function(){alert('you click the close button');});
-		win.on('close', function(){alert('the second close handler');});
+		// win.on('close', function(){alert('the second close handler');});
 	});
 });
 
