@@ -64,7 +64,7 @@ require(['jquery', 'window'], function($, w){
 			y: 50,
 			text4PromptBtn: '输入',
 			text4CancelBtn: '取消',
-			defaultValuePromptInput: '张三',
+			defaultValue4PromptInput: '张三',
 			dragHandle: '.window_header',
 			handler4PromptBtn: function(inputValue){
 				alert('您输入的内容是: ' + inputValue);
