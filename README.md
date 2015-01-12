@@ -19,6 +19,7 @@ web components study
 * v0.15 define a widget abstract class
 * v0.16 refactor widget class
 * v0.17 implement prompt dialog
+* v0.18 add common dialog —— without header and footer
 
 
 ### key point

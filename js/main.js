@@ -74,5 +74,17 @@ require(['jquery', 'window'], function($, w){
 			}
 		});
 	});
+
+	$('#d').click(function(){
+		var win = new w.Window();
+
+		win.common({
+			content: '我是一个通用弹窗',
+			width: 300,
+			height: 150,
+			y: 50,
+			hasCloseBtn: true
+		});
+	});
 });
 
