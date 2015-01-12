@@ -1,5 +1,5 @@
 
-define(['jquery', 'jqueryUI'], function($, $UI){
+define(['widget', 'jquery', 'jqueryUI'], function(widget, $, $UI){
 	function Window(){
 		this.cfg = {
 			width: 500,
@@ -15,11 +15,9 @@ define(['jquery', 'jqueryUI'], function($, $UI){
 			handler4AlertBtn: null,
 			handler4CloseBtn: null
 		};
-
-		this.handlers = {}
 	}
 
-	Window.prototype = {
+	Window.prototype = $.extend({}, new widget.Widget(),{
 		
 		alert: function(cfg){
 			
@@ -96,27 +94,9 @@ define(['jquery', 'jqueryUI'], function($, $UI){
 
 		confirm: function(){},
 
-		promot: function(){},
-
-		// 非常经典的观察则模式实现
-		on: function(type, handler){
-			if(typeof this.handlers[type] === 'undefined'){
-				this.handlers[type] = [];
-			}
-			this.handlers[type].push(handler);
-
-			return this;
-		},
-
-		fire: function(type, data){
-			if(this.handlers[type] instanceof Array){
-				var handlers = this.handlers[type];
-				for(var i = 0, len = handlers.length; i < len; i++){
-					handlers[i](data);
-				}
-			}
-		}
-	}
+		promot: function(){}
+		
+	});
 
 	return {
 		Window: Window

@@ -16,6 +16,7 @@ web components study
 * v0.12 use observe pattern to custom event
 * v0.13 custom event II
 * v0.14 chain function
+* v0.15 define a widget abstract class
 
 
 ### key point
@@ -25,3 +26,10 @@ web components study
 > 
   1. 本质： 观察者模式
   2. 优点： 跳出原生事件的限制，提高封装的抽象性
+
+* js 类库分2种
+
+>
+  1. utility.js: 与UI无关的，如ajax、cookie、drag等
+  2. widget.js: 与UI有关的，如calendar、rich text box、animation等
+
