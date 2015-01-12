@@ -18,6 +18,7 @@ web components study
 * v0.14 chain function
 * v0.15 define a widget abstract class
 * v0.16 refactor widget class
+* v0.17 implement prompt dialog
 
 
 ### key point

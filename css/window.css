@@ -7,6 +7,7 @@
 .move{cursor: move;}
 .window_footer{position: absolute;bottom: 0; padding-bottom: 10px;text-align: center;width: 100%;}
 .window_cancelBtn{margin-left: 20px;}
+.window_promptInputWrapper{text-align: center;}
 
 /* skin for a */
 .window_skin_a.window_boundingBox{box-shadow: none;border: 10px solid rgba(0,0,0,.3); border-radius: 8px;}
