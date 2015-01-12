@@ -17,6 +17,7 @@ web components study
 * v0.13 custom event II
 * v0.14 chain function
 * v0.15 define a widget abstract class
+* v0.16 refactor widget class
 
 
 ### key point
