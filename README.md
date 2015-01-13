@@ -36,3 +36,7 @@ web components study
   1. utility.js: 与UI无关的，如ajax、cookie、drag等
   2. widget.js: 与UI有关的，如calendar、rich text box、animation等
 
+### 配置 cssmin 任务
+
+> 1. `npm install grunt-contrib-cssmin --save-dev`
+> 2. 执行`grunt`命令对css进行压缩(minify)和合并(combine)
