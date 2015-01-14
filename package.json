@@ -1,0 +1,23 @@
+{
+  "name": "web_components",
+  "version": "1.0.0",
+  "description": "web components study ",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FrankFan/web_components.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FrankFan/web_components/issues"
+  },
+  "homepage": "https://github.com/FrankFan/web_components"
+}
