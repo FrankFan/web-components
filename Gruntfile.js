@@ -26,12 +26,16 @@ module.exports = function(grunt){
 
 		uglify: {
 			options: {
-				// banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' 
+				// banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - '
 				// + '<%= grunt.template.today("yyyy-mm-dd") %> */'
+				compress: {
+		        	drop_console: true  // 去掉源码中的 console 日志
+		        }
 			},
 			target: {
 				files: {
-					'dest/js/main.min.js': ['js/*.js', 'js/!*.jquery-1.10.2.js', 'js/!*.require.js']
+					// 'dest/js/main.min.js': ['js/*.js', 'js/!*.jquery-1.10.2.js', 'js/!*.require.js']
+					'dest/js/floating_springFestival.min.js': ['js/floating_springFestival.js']
 				}
 			}
 		}
