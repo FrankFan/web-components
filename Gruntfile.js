@@ -6,9 +6,11 @@
 
 module.exports = function(grunt){
 
-	pkg: grunt.file.readJSON('package.json'),
+
 
 	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
+
 		cssmin: {
 			minify: {
 				expand: true, // 如果设为true，就表示下面文件名的占位符（即*号）都要扩展成具体的文件名
@@ -26,16 +28,17 @@ module.exports = function(grunt){
 
 		uglify: {
 			options: {
-				// banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - '
-				// + '<%= grunt.template.today("yyyy-mm-dd") %> */'
+				banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - '
+				+ '<%= grunt.template.today("yyyy-mm-dd") %> */\n',
 				compress: {
-		        	drop_console: true  // 去掉源码中的 console 日志
+		        	drop_console: true,  // 去掉源码中的 console 日志
+		        	drop_debugger: true
 		        }
 			},
 			target: {
 				files: {
 					// 'dest/js/main.min.js': ['js/*.js', 'js/!*.jquery-1.10.2.js', 'js/!*.require.js']
-					'dest/js/floating_springFestival.min.js': ['js/floating_springFestival.js']
+					'dest/js/output.min.js': ['js/main.js']
 				}
 			}
 		}
