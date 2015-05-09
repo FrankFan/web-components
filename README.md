@@ -24,13 +24,13 @@ web components study
 
 ### key point
 
-* 自定义事件
+- 自定义事件
 
 > 
   1. 本质： 观察者模式
   2. 优点： 跳出原生事件的限制，提高封装的抽象性
 
-* js 类库分2种
+- js 类库分2种
 
 >
   1. utility.js: 与UI无关的，如ajax、cookie、drag等
