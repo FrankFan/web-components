@@ -1,4 +1,4 @@
-web components study
+web components
 ---
 
 ### 渐进增强
