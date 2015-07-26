@@ -1,6 +1,9 @@
 web components
 ---
 
+## web组件三层结构
+
+
 ### 渐进增强
 * v0.1 init repo, build basic scanfolder
 * v0.2 done alert web components basic feature
